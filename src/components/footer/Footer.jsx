@@ -4,7 +4,6 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Footer = () => {
