@@ -1,0 +1,1 @@
+footer{border-top:1px solid #000;padding:50px 0}footer .footer--container{display:flex;justify-content:space-between;align-items:start}footer .footer--container ul{display:flex;flex-direction:column;gap:1rem}footer .footer--container ul a{font-size:16px;color:#000;display:flex;align-items:center;gap:.5rem;text-transform:uppercase}footer .footer--container ul a svg{font-size:16px}

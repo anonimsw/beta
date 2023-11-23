@@ -1,0 +1,1 @@
+.info{position:relative;width:100%}.info h1{font-size:48px;font-weight:normal;color:#000}.info p{font-size:18px;font-weight:normal;color:#000}.info img{position:absolute;z-index:-1;top:-50%;opacity:50%;width:100%}@media all and (max-width: 930px){.info img{top:25%}}

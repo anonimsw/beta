@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+.container {
+  width: 85%;
+  margin: auto;
+}
+
+@media all and (max-width:930px){
+  .container{
+    width: 90%;
+  }
+}
+@media all and (max-width:768px){
+  .container{
+    width: 95%;
+  }
+}
