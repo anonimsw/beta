@@ -1,25 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import '../card/Card.scss'
-import axios from 'axios';
 import { useCart } from 'react-use-cart';
 import { t } from 'i18next';
 import { NavLink } from 'react-router-dom';
+import { Context } from '../../context';
 
 const Card = () => {
     const { addItem, getItem, removeItem } = useCart();
-
-    const [data, setData] = useState([]);
-
-    const getApi = () => {
-        axios
-            .get("https://beta-bec.onrender.com/beta")
-            .then((res) => {
-                setData(res.data)
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
+    const { getApi, data } = React.useContext(Context);
     useEffect(() => {
         getApi()
     }, [])

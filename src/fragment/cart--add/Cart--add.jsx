@@ -6,11 +6,9 @@ import axios from 'axios';
 import Modal from '@mui/material/Modal';
 import { Box } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { onValue, ref, set } from 'firebase/database'
-import { db } from '../../firebase'
-import { uid } from 'uid'
 import { t } from 'i18next';
 import { NavLink } from 'react-router-dom';
+import { Context } from '../../context';
 
 const Cartadd = () => {
     const { items, updateItemQuantity, removeItem, emptyCart } = useCart();
@@ -54,52 +52,9 @@ Mijoz manzili: ${address}
     const clickClose = () => setOpen(false);
     // modal
 
-    // regis
-    const [todos, setTodos] = useState([]);
-    const [todo, setTodo] = useState("");
-    const [name, setName] = useState("");
-    const [address, setAddress] = useState("");
-    const [contact, setContact] = useState("");
+    const { name, address, contact, clicknameChange, clickaddressChange, clickcontactChange, writeToDatabase, } = React.useContext(Context);
 
-    const clicknameChange = (e) => {
-        setName(e.target.value)
-    }
-    const clickaddressChange = (e) => {
-        setAddress(e.target.value)
-    }
-    const clickcontactChange = (e) => {
-        setContact(e.target.value)
-    }
-
-    useEffect(() => {
-        onValue(ref(db), (snapshot) => {
-            setTodos([]);
-            const data = snapshot.val();
-            if (data !== null) {
-                Object.values(data).map((todo) => {
-                    setTodos((oldArray) => [...oldArray, todo]);
-                });
-            }
-        });
-    }, []);
-
-    const writeToDatabase = () => {
-        const uuid = uid();
-        set(ref(db, `/${uuid}`), {
-            todo,
-            mp3,
-            musicFlayer,
-            musicName,
-            musicExecutor,
-            musicGenre,
-            musicDesc,
-            uuid,
-        });
-
-        setTodo("");
-    };
-
-    // regis
+    const { t } = useTranslation();
 
     const style = {
         position: 'absolute',
@@ -123,7 +78,7 @@ Mijoz manzili: ${address}
                             <div className="card--add" key={item._id}>
                                 <img src={item.image} alt="" />
                                 <NavLink to={`/products-title/${item.title}`} className='link--pages'>
-                                {t("order1")}
+                                    {t("order1")}
                                 </NavLink>
                                 <div className="card--item--text">
                                     <p className='title'>
@@ -166,28 +121,28 @@ Mijoz manzili: ${address}
             <div className="cart--order">
                 <ul className='products--order--info'>
                     <li>
-                    {t("order2")}
+                        {t("order2")}
                         <p>
                             {total}
                         </p>
                     </li>
                     <li>
-                    {t("order3")}
+                        {t("order3")}
                         <p>
-                        {t("order4")}
+                            {t("order4")}
                         </p>
                     </li>
                 </ul>
                 <hr />
                 <ul>
                     <li>
-                    {t("order5")}
+                        {t("order5")}
                         <p>
                             {total} UZS
                         </p>
                     </li>
                     <button onClick={clickOpen}>
-                    {t("order6")}
+                        {t("order6")}
                     </button>
                 </ul>
                 <Modal
@@ -200,25 +155,25 @@ Mijoz manzili: ${address}
                             <CloseIcon onClick={clickClose} />
                             <p>
                                 <span>
-                                {t("order7")}
+                                    {t("order7")}
                                 </span>
                                 <input type="text" value={name} onChange={clicknameChange} />
                             </p>
                             <p>
                                 <span>
-                                {t("order8")}
+                                    {t("order8")}
                                 </span>
-                                <input type="text" value={address} onChange={clickaddressChange} disabled={!name}/>
+                                <input type="text" value={address} onChange={clickaddressChange} disabled={!name} />
                             </p>
                             <p>
                                 <span>
-                                {t("order9")}
+                                    {t("order9")}
                                 </span>
-                                <input type="number" value={contact} onChange={clickcontactChange} disabled={!address}/>
+                                <input type="tel" value={contact} onChange={clickcontactChange} disabled={!address} />
                             </p>
                             <br />
                             <button className='btn--order' onClick={writeToDatabase, () => { postTest(); }} disabled={!contact}>
-                            {t("order8")}
+                                {t("order8")}
                             </button>
                         </div>
                     </Box>

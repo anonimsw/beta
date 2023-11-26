@@ -1,26 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import React, { useEffect} from 'react'
 import '../instruction/Instruction.scss'
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom';
+import { Context } from '../../context';
 
 const Instruction = () => {
-    const [data, setData] = useState([]);
-    const { t, i18n } = useTranslation();
-
-    const changeLanguage = (language) => {
-        i18n.changeLanguage(language);
-    };
-    const getApi = () => {
-        axios
-            .get("https://beta-bec.onrender.com/beta")
-            .then((res) => {
-                setData(res.data)
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
+    const { t } = useTranslation();
+    const { getApi, data } = React.useContext(Context);
     useEffect(() => {
         getApi()
     }, [])

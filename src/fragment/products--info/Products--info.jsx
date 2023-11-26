@@ -1,41 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import axios from 'axios';
 import '../products--info/Products--info.scss'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useCart } from 'react-use-cart'
 import { useTranslation } from 'react-i18next';
+import { Context } from '../../context';
 
 const ProductsInfo = () => {
-    const { t, i18n } = useTranslation();
-    const changeLanguage = (language) => {
-        i18n.changeLanguage(language);
-    };
-
+    const { t } = useTranslation();
     const { title } = useParams();
-
-    const [data, setData] = useState([]);
-
-
+    const { getApi, data } = React.useContext(Context);
     const { addItem, removeItem, getItem } = useCart();
-
-    const getApi = () => {
-        axios
-            .get("https://beta-bec.onrender.com/beta")
-            .then((res) => {
-                setData(res.data)
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
-
     useEffect(() => {
         getApi()
     }, [])
 
     const newData = data.filter((el) => el.title === title);
-    const cad = data.filter((el) => el._id === "64a7fd43e46294112f837662")
     return (
         <div className='products--info'>
             {newData.map((el) => {
