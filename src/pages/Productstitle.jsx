@@ -1,7 +1,7 @@
 import React from 'react'
 import Nav from '../components/nav/Nav'
 import Footer from '../components/footer/Footer'
-import ProductsInfo from '../fragment/products--info/Products--info'
+import ProductsInfo from '../fragment/productsinfo/Productsinfo'
 
 const Productstitle = () => {
 
