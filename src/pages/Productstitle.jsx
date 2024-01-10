@@ -3,7 +3,7 @@ import Nav from '../components/nav/Nav'
 import Footer from '../components/footer/Footer'
 import ProductsInfo from '../fragment/products--info/Products--info'
 
-const Products = () => {
+const Productstitle = () => {
 
 
 
@@ -20,4 +20,4 @@ const Products = () => {
     )
 }
 
-export default Products
+export default Productstitle

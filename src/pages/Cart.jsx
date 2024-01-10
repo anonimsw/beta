@@ -3,7 +3,7 @@ import Nav from '../components/nav/Nav'
 import Footer from '../components/footer/Footer'
 import { useCart } from 'react-use-cart';
 import Cartadd from '../fragment/cart--add/cart--add';
-import Cartnote from '../fragment/cart--note/Cart--note';
+import Cartnote from '../fragment/cart--note/Cartnote';
 
 
 const Cart = () => {
