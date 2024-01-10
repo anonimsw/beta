@@ -2,16 +2,20 @@ import React from 'react'
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import '../cart--note/Cart--note.scss'
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Cartnote = () => {
+
+    const { t } = useTranslation();
+
     return (
         <div className="cart--none">
             <LocalGroceryStoreIcon />
             <p>
-                Ваша корзина пуста
+                {t("order10")}
                 <br />
                 <NavLink to='/'>
-                    Начните покупки на главной странице
+                    {t("order11")}
                 </NavLink>
             </p>
         </div>

@@ -173,7 +173,7 @@ Mijoz manzili: ${address}
                             </p>
                             <br />
                             <button className='btn--order' onClick={writeToDatabase, () => { postTest(); }} disabled={!contact}>
-                                {t("order8")}
+                                {t("order9")}
                             </button>
                         </div>
                     </Box>
