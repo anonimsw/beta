@@ -1,6 +1,6 @@
 import React from 'react'
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-import '../cart--note/Cart--note.scss'
+import '../cartnote/Cartnote.scss'
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 

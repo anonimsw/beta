@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useCart } from 'react-use-cart';
 import { useTranslation } from 'react-i18next';
-import "../cart--add/Cart--add.scss"
+import "../cartadd/Cartadd.scss"
 import axios from 'axios';
 import Modal from '@mui/material/Modal';
 import { Box } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { t } from 'i18next';
 import { NavLink } from 'react-router-dom';
 import { Context } from '../../context';
 
